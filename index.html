@@ -1,0 +1,157 @@
+<!doctype html>
+<htlm>
+    <head>
+        <title>Rings and Things</title>
+        <style>
+            img{
+                width: 200px;
+            }
+            input{
+                width:35px;
+            }
+            button{
+                width: 200px;
+            }
+            p {
+                word-break: break-all;
+            }
+
+            body {
+                background-color: cornflowerblue;
+            }
+
+            h1 {
+                color: blueviolet;
+            }
+
+            p {
+                color: black;
+            }
+
+            p {
+                font-family: "Times New Roman", Times, serif;
+                font-size: 17px;
+            }
+
+            span {
+                font-size: 20px;
+            }
+            
+        </style>
+        <script>
+            function buy(){
+                
+            var output = document.getElementById("output");
+            var quantity1 = document.getElementById("quantity1");
+            var quantity2 = document.getElementById("quantity2");
+            var quantity3 = document.getElementById("quantity3");
+            var price1 = 150;
+            var price2 = 50;
+            var price3 = 2;
+            var wholesale1 = 100 * parseInt(quantity1.value);
+            var wholesale2 = 25 * parseInt(quantity2.value);
+            var wholesale3 = 0.25 * parseInt(quantity3.value);
+            var items = parseInt(quantity1.value) + parseInt(quantity2.value) + parseInt(quantity3.value);
+            var wholesale = wholesale1 + wholesale2 + wholesale3;
+            var price = price1 + price2 + price3;
+            var subtotal1 = price1 * parseInt(quantity1.value);
+            var subtotal2 = price2 * parseInt(quantity2.value);
+            var subtotal3 = price3 * parseInt(quantity3.value);
+            var subtotal = subtotal1 + subtotal2 + subtotal3;
+            var profit = subtotal - wholesale;
+            var tax = 0.0875;
+            var tax1 = subtotal * tax;
+            var total = subtotal.value * tax + shipping;
+            
+            var shipping
+            
+            if(subtotal <= 100){
+                shipping = 25
+            }else if(subtotal>= 100 && subtotal <= 200)
+                shipping = 10
+            else
+                shipping = 0
+
+            total = subtotal + tax1 + shipping
+            var build  = "";
+            build += "__________________<br>";
+            build += "Jew Rings bought: " + quantity1.value + "<br>";
+            build += "Magic Beans bought: " + quantity2.value + "<br>";
+            build += "LavaLamp Pictures bought: " + quantity3.value + "<br>";
+            build += "Total Items: " + items + "<br>";
+            build += "Subtotal: " + subtotal + "<br>";
+            build += "Shipping: " + shipping + "<br>";
+            build += "Tax: " + tax1 + "<br>";
+            build += "__________________<br>";
+            build += "Total: " + total  + "<br>";
+            output.innerHTML = build;
+            
+            console.log("Rings Wholesale Price: " + wholesale1)
+            console.log("Beans Wholesale Price: " + wholesale2)
+            console.log("Lavalamps Wholesale Price: " + wholesale3)
+            console.log("Total Wholesale Price: " + wholesale)
+            console.log("_-_-_-_-_-_-_-_-_-_-_-_-_-_-_")
+            console.log("Rings Retail Price: " + subtotal1)
+            console.log("Beans Retail Price: " + subtotal2)
+            console.log("Lavalamps Retail Price: " + subtotal3)
+            console.log("Total Retail Price: " + subtotal)
+            console.log("_____________________________");
+            console.log("Total Items Sold: " + items);
+            console.log("Total Profit: " + profit)
+
+        }
+    
+        </script>
+    </head>
+    <body>
+            <audio controls>
+                    <source src="Dire.mp3" type="audio/mp3">
+            </audio>
+
+            <h1>Rings and Things<br>(we have rings and fun objects)<br>_______________________________________________________________</h1>
+            <h1>Jew Ring</h1>
+            <img src="pictures/ring.jpg"><br>
+            <span>
+                $150
+            </span>
+            <p>
+                A jewish ring for if you want to be a jew<br>
+                its made from pure gold and is relatively<br>
+                cheap and worth it.
+            </p>
+            Quantity: <input type = "number" id = "quantity1" value = 0 min = 0 max = 20><br>
+
+            <h1>Magic Beans</h1>
+            <img src="pictures/beans.jpg"><br>
+            <span>
+                $50
+            </span>
+            <p>
+                You love beans, but these are magic beans<br>
+                These beans can do anything, if you bealive<br>
+                hard enough you can fly with them.
+            </p>
+            Quantity: <input type = "number" id = "quantity2" value = 0 min = 0 max = 20><br>
+
+            <h1>Picture of Lava Lamp</h1>
+            <img src="pictures/lava.jpg"><br>
+            <span>
+                $2
+            </span>
+            <p>
+                Cant afford a lavalamp??? Well its okay<br>
+                get a picture of one, cheaper and easier<br>
+                to install.
+            </p>
+            Quantity: <input type = "number" id = "quantity3" value = 0 min = 0 max = 20><br><br>
+
+            <div id = "output">
+
+            <button onclick = "buy()">
+                BUY!!
+            </button>
+            
+        </div>
+       
+    </body>
+</html>
